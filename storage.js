@@ -25,6 +25,7 @@ submit.addEventListener('click', function(){
     }
     usuarios.push(user);
     console.log(usuarios)
+    container.innerHTML = ''
     guardarDatos();
     pintarDatos();    
 }
@@ -52,12 +53,38 @@ function pintarDatos (){
     //                     <p>${Email}</p>
     //                     <p>${Texto}</p>   
     //                   `
-
-    let array = localStorage.getItem('usuarios');
-    container.innerHTML = `
-                          <h2>${array}</h2>
-                          `
+    let usersback = JSON.parse(localStorage.getItem('usuarios'));
+    
+    for (const usuario of usersback){
+        container.innerHTML += `
+                                <h2>${usuario.nombre}</h2>
+                                <p>${usuario.email}</p>
+                                <p><button id="eraseButton">Borrar
+                                <p>${usuario.texto}</p>
+                                `
+                               
+    }
+        
 }
+
+//Crea un botón para borrar todos los contactos guardados en Local Storage
+
+const borrar = document.getElementById('clear');
+
+borrar.addEventListener('click', function(){    
+    localStorage.clear('usuarios')
+}
+)
+
+const erase = document.getElementById('eraseButton');
+
+erase.addEventListener('click', function(){
+    
+}
+)
+
+// Este último me queda pendiente :( 
+
 
 
 
