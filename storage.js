@@ -61,10 +61,8 @@ function pintarDatos (){
                                 <p>${usuario.email}</p>
                                 <p><button id="eraseButton">Borrar
                                 <p>${usuario.texto}</p>
-                                `
-                               
-    }
-        
+                                `                              
+    }       
 }
 
 //Crea un botón para borrar todos los contactos guardados en Local Storage
@@ -72,9 +70,14 @@ function pintarDatos (){
 const borrar = document.getElementById('clear');
 
 borrar.addEventListener('click', function(){    
-    localStorage.clear('usuarios')
+    localStorage.clear()
+    container.innerHTML =''
 }
 )
+
+
+//
+
 
 const erase = document.getElementById('eraseButton');
 
